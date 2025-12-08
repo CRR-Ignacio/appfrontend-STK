@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <product-form (newproductEvent)="onNewProduct($event)" [product] = "productSelected"></product-form>
+        </div>
+        <div class="col">
+    
+    
+        @if (products.length > 0) {
+            <table class="table table-hover table-stripe">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (product of products; track $index) {
+                        <tr>
+                            <td>{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.price}}</td>
+                            <td>
+                                <button (click)="onUpdateProduct(product)" class="btn btn-sm btn-primary">Update</button>
+                            </td>
+                            <td>
+                                <button (click)="onDeleteProduct(product.id)" class="btn btn-sm btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        } @else {
+            <div class="alert alert-info" >No products available.</div>
+        }
+
+        </div>
+    </div>
+</div>
