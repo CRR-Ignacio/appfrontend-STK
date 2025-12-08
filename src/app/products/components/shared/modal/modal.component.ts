@@ -15,6 +15,7 @@ export class ModalComponent {
   @Output() closeModal = new EventEmitter<void>();
 
   onClose() {
+    //Hola soy un cambio de git
     this.closeModal.emit();
   }
 }
