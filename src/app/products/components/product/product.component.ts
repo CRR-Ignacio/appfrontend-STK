@@ -12,8 +12,16 @@ import { ModalComponent } from '../shared/modal/modal.component';
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })
+
 export class ProductComponent implements OnInit {
 
+
+  isModalOpen: boolean = false;
+
+  openModal() {this.isModalOpen = true; }
+
+  closeModal() {this.isModalOpen = false;} 
+  
   products: Product[] = [];
   productSelected: Product = new Product();
 
@@ -71,3 +79,4 @@ export class ProductComponent implements OnInit {
     this.productSelected = { ...productRow };
   }
 }
+

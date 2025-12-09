@@ -1,30 +1,28 @@
 @if (isOpen) {
-  <div class="modal fade show d-block" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        
-        <!-- Header -->
-        <div class="modal-header">
-          @if (title) {
-            <h5 class="modal-title">{{ title }}</h5>
-          }
-          <button 
-            type="button" 
-            class="btn-close" 
-            (click)="onClose()"
-            aria-label="Close">
-          </button>
-        </div>
-
-        <!-- Body -->
-        <div class="modal-body">
-          <ng-content></ng-content>
-        </div>
-
+  <div class="modal-backdrop" (click)="onBackdropClick($event)">
+  
+    <div class="modal-content">
+      
+      <!-- Header con título y botón cerrar -->
+      <div class="modal-header">
+        @if (title) {
+          <h2 class="modal-title">{{ title }}</h2>
+        }
+        <button 
+          type="button" 
+          class="btn-close" 
+          (click)="onClose()"
+          aria-label="Close">
+          ×
+        </button>
       </div>
+
+      <!-- Contenido del modal (ng-content) -->
+      <div class="modal-body">
+        
+        <ng-content></ng-content>
+      </div>
+
     </div>
   </div>
-  
-  <!-- Backdrop -->
-  <div class="modal-backdrop fade show" (click)="onClose()"></div>
 }
