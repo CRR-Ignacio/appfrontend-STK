@@ -17,4 +17,7 @@ export class ModalComponent {
   onClose() {
     this.closeModal.emit();
   }
+
+  
+    //Hola soy un cambio de git
 }
